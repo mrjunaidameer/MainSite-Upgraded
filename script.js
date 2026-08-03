@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
        DYNAMIC TARGET INTERACTIVE SPOTLIGHT LIGHTING
        ========================================================================== */
     const initCardSpotlights = () => {
-        const cards = document.querySelectorAll('.item-glow, .item-glow-large, .footer-social-node');
+        const cards = document.querySelectorAll('.glass-card');
         
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -131,21 +131,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 
-                const glowSize = card.classList.contains('item-glow-large') ? '400px' : '220px';
-                const glowColor = 'rgba(255, 110, 41, 0.08)';
-                
                 if(!card.classList.contains('footer-social-node')) {
-                    card.style.background = `radial-gradient(${glowSize} circle at ${x}px ${y}px, ${glowColor}, transparent 80%), var(--card-bg-glass)`;
+                    card.style.background = `radial-gradient(300px circle at ${x}px ${y}px, rgba(255, 110, 41, 0.08), transparent 80%), var(--card-bg-glass)`;
+                    card.style.borderColor = `rgba(255, 110, 41, 0.25)`;
                 }
-                card.style.borderColor = `rgba(255, 110, 41, 0.25)`;
             });
 
             card.addEventListener('mouseleave', () => {
                 if(!card.classList.contains('footer-social-node')) {
                     card.style.background = 'var(--card-bg-glass)';
                     card.style.borderColor = 'var(--card-border-glass)';
-                } else {
-                    card.style.borderColor = 'rgba(255,255,255,0.04)';
                 }
             });
         });
@@ -153,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCardSpotlights();
 
     /* ==========================================================================
-       PREMIUM APPLE METRIC TEXT TYPEWRITER ENGINE
+       PREMIUM TYPEWRITER ENGINE
        ========================================================================== */
     const initTypewriter = () => {
         const target = document.getElementById('typewriter');
@@ -194,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTypewriter();
 
     /* ==========================================================================
-       INTERSECTION OBSERVER METRICS (SCROLL REVEAL SCENARIO)
+       SCROLL REVEAL ENGINE
        ========================================================================== */
     const initScrollReveal = () => {
         const revealElements = document.querySelectorAll('.scroll-reveal, .cinematic-quote');
@@ -242,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
 
     /* ==========================================================================
-       CORE GLOBAL HIGH-PERFORMANCE SCROLL CONTROLLER
+       HIGH-PERFORMANCE SCROLL CONTROLLER
        ========================================================================== */
     const initScrollEngine = () => {
         const navbar = document.getElementById('main-nav');
@@ -298,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollEngine();
 
     /* ==========================================================================
-       MAGNETIC HOVER VECTOR MATRIX ENGINE
+       MAGNETIC BUTTON VECTOR MATRIX ENGINE
        ========================================================================== */
     const initMagneticButtons = () => {
         const targets = document.querySelectorAll('.magnetic-target');
@@ -362,60 +357,11 @@ document.addEventListener('DOMContentLoaded', () => {
             blur.style.top = `${e.clientY}px`;
         }, { passive: true });
 
-        const activeTargets = document.querySelectorAll('a, button, .form-input');
+        const activeTargets = document.querySelectorAll('a, button');
         activeTargets.forEach(node => {
             node.addEventListener('mouseenter', () => document.body.classList.add('cursor-hovering'));
             node.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hovering'));
         });
     };
     if (!AppState.isMobile) initHardwareCursor();
-
-    /* ==========================================================================
-       DIRECT COMPOSER LAUNCH MAIL ENGINE
-       ========================================================================== */
-    const initContactForm = () => {
-        const form = document.getElementById('premium-contact-form');
-        const btn = document.getElementById('form-submit-btn');
-        const msg = document.getElementById('form-status-msg');
-
-        if (!form) return;
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            if (!form.checkValidity()) {
-                msg.style.color = '#ff6e29';
-                msg.textContent = "Please complete all fields with accurate parameters.";
-                return;
-            }
-
-            btn.classList.add('loading');
-            btn.disabled = true;
-
-            const name = document.getElementById('form-name').value;
-            const email = document.getElementById('form-email').value;
-            const message = document.getElementById('form-message').value;
-
-            // Constructs native deep link mail parameter structures
-            const targetRecipient = "thejunaidinsights@gmail.com";
-            const subjectLine = encodeURIComponent(`Portfolio Connection - ${name}`);
-            const bodyContent = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-            
-            const mailtoLink = `mailto:${targetRecipient}?subject=${subjectLine}&body=${bodyContent}`;
-
-            setTimeout(() => {
-                btn.classList.remove('loading');
-                msg.style.color = '#29ff8d';
-                msg.textContent = "Opening mail client window to send your message directly...";
-                
-                // Triggers native platform system mail layout dispatching
-                window.location.href = mailtoLink;
-                
-                form.reset();
-                btn.disabled = false;
-                setTimeout(() => { msg.textContent = ""; }, 6000);
-            }, 1200);
-        });
-    };
-    initContactForm();
 });
