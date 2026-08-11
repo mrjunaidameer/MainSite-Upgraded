@@ -7,7 +7,7 @@
     <!-- Smart Google-Level SEO Search Optimization Matrix -->
     <title>Junaid Ameer | Content Creator & Cyber Security Student Portfolio</title>
     <meta name="description" content="Official personal website of Junaid Ameer. Cyber Security student and digital content creator simplifying science, space mysteries, and technology through easy-to-understand videos for a global audience.">
-    <meta name="keywords" content="Junaid Ameer, Junaid Ameer portfolio, thejunaidameer, Junaid Ameer Cyber Security, content creator, science educator, space videos, junaidameer.online">
+    <meta name="keywords" content="Junaid Ameer, Junaid Ameer portfolio, thejunaidameer, JUNIREX, thejunirex, Junaid Ameer Cyber Security, content creator, science educator, space videos, junaidameer.online">
     <meta name="author" content="Junaid Ameer">
     <link rel="canonical" href="https://junaidameer.online/">
 
@@ -16,14 +16,14 @@
     <meta property="og:url" content="https://junaidameer.online/">
     <meta property="og:title" content="Junaid Ameer | Content Creator & Cyber Security Student">
     <meta property="og:description" content="Simplifying technology, space, mysteries, and science through easy-to-understand videos for a global community.">
-    <meta property="og:image" content="junaidpic.png">
+    <meta property="og:image" content="junaidmainpic.png">
 
     <!-- Twitter Engine Metadata -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://junaidameer.online/">
     <meta property="twitter:title" content="Junaid Ameer | Portfolio">
     <meta property="twitter:description" content="Cyber Security student and creator making science and technology understandable for everyone worldwide.">
-    <meta property="twitter:image" content="junaidpic.png">
+    <meta property="twitter:image" content="junaidmainpic.png">
 
     <!-- Stylesheets Integration -->
     <link rel="stylesheet" href="style.css">
@@ -44,9 +44,11 @@
       "description": "I create videos that simplify technology, science, AI and space for everyone.",
       "sameAs": [
         "https://youtube.com/@thejunaidameer",
+        "https://youtube.com/@thejunirex",
+        "https://www.facebook.com/thejunaidameer",
         "https://www.tiktok.com/@thejunaidameer",
-        "https://www.instagram.com/joniclipz",
-        "https://www.linkedin.com/in/junaidameercreative"
+        "https://www.instagram.com/thejunaidameer",
+        "https://www.linkedin.com/in/thejunaidameer"
       ]
     }
     </script>
@@ -56,7 +58,7 @@
     <!-- Scroll Progress Indicator -->
     <div id="scroll-progress" aria-hidden="true"></div>
 
-    <!-- Background Engine Components -->
+    <!-- Background Space Components -->
     <div class="ambient-glow" id="ambient-glow" aria-hidden="true"></div>
     <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
@@ -67,13 +69,16 @@
     <!-- Sticky Navigation Bar Layout -->
     <header class="navbar" id="main-nav">
         <div class="nav-container">
-            <a href="#home" class="logo" aria-label="Junaid Ameer Home">JA</a>
+            <a href="#home" class="nav-logo-wrap" aria-label="Junaid Ameer Home">
+                <img src="junaidmainpic.png" alt="Junaid Ameer Logo" class="nav-logo-img">
+            </a>
             <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span></span><span></span>
             </button>
             <nav class="nav-menu" id="nav-links">
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
+                <a href="#platforms" class="nav-link">My Platforms</a>
                 <a href="#journey" class="nav-link">Journey</a>
                 <a href="#education" class="nav-link">Education</a>
             </nav>
@@ -85,7 +90,7 @@
         <section id="home" class="hero-section text-reveal-zone">
             <div class="section-container hero-grid">
                 
-                <!-- Desktop Left / Mobile Bottom Content Block -->
+                <!-- Content Block -->
                 <div class="hero-content">
                     <h1 class="hero-title">
                         <span class="greeting">Hi, I'm</span>
@@ -97,20 +102,20 @@
                     </div>
 
                     <p class="hero-manifesto">
-                        Knowledge shouldn't be locked behind confusing terms or dry textbooks. I build high-production videos that make space exploration, scientific breakthroughs, and modern mysteries simple and accessible to millions.
+                        I love science, space, ancient creatures, and modern tech. While studying cybersecurity, I create clear, high-quality content that shares fascinating discoveries with curious minds across the globe.
                     </p>
 
                     <div class="hero-cta-group">
-                        <a href="#journey" class="btn btn-primary btn-glow magnetic-target">Watch My Journey</a>
-                        <a href="#journey" class="btn btn-secondary magnetic-target" onclick="document.getElementById('journey').scrollIntoView();">My Goals</a>
+                        <a href="#platforms" class="btn btn-primary btn-glow magnetic-target">Explore My Content</a>
+                        <a href="#journey" class="btn btn-secondary magnetic-target">My Story & Goals</a>
                     </div>
                 </div>
 
-                <!-- Desktop Right / Mobile Top Profile Frame -->
+                <!-- Circular Profile Frame -->
                 <div class="hero-visual">
-                    <div class="image-glass-frame scroll-reveal">
-                        <img src="junaidpic.png" alt="Junaid Ameer Presentation Visual" class="hero-profile-img">
-                        <div class="rim-light-overlay"></div>
+                    <div class="image-glass-frame hero-circle-frame scroll-reveal">
+                        <img src="junaidmainpic.png" alt="Junaid Ameer" class="hero-profile-img hero-circle-img">
+                        <div class="rim-light-overlay circle-rim"></div>
                     </div>
                 </div>
 
@@ -121,17 +126,64 @@
         <section id="about" class="about-section scroll-reveal-zone">
             <div class="section-container min-container">
                 <h2 class="section-tag">Who Am I?</h2>
-                <h3 class="about-headline scroll-reveal">I'm Junaid Ameer, a Cyber Security student and passionate content creator.</h3>
+                <h3 class="about-headline scroll-reveal">I'm Junaid Ameer — a student, tech enthusiast, and digital storyteller.</h3>
                 <div class="about-body scroll-reveal">
-                    <p>My goal isn't simply to grow followers. It's to make technology and science understandable for everyone. I believe knowledge should be accessible no matter where you live. Every video I create is another step toward that mission.</p>
+                    <p>I have a deep passion for understanding how our world works—from deep space and AI to prehistoric creatures and ocean depths. My goal is simple: take complex, incredible topics and explain them in clear, exciting videos for everyone.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Journey & Goals Section -->
+        <!-- Content Platforms Section -->
+        <section id="platforms" class="channels-section scroll-reveal-zone">
+            <div class="section-container">
+                <h2 class="section-title text-center">Where I Share Content</h2>
+                <p class="section-desc text-center channel-subdesc">I split my content into two focused brands so you can follow what sparks your curiosity most.</p>
+
+                <div class="channels-grid">
+                    
+                    <!-- Platform 1: Junaid Ameer -->
+                    <div class="channel-card glass-card junaid-channel-card scroll-reveal">
+                        <div class="channel-card-header">
+                            <div class="channel-pfp-wrap lime-pfp-border">
+                                <img src="thejunaidameer.jpeg" alt="Junaid Ameer Profile" class="channel-pfp">
+                            </div>
+                            <div class="channel-title-wrap">
+                                <h3 class="channel-title">Junaid Ameer</h3>
+                                <span class="channel-handle lime-text">@thejunaidameer</span>
+                            </div>
+                        </div>
+                        <p class="channel-description">
+                            Dedicated to space science, artificial intelligence, robotics, future technology, and cosmic mysteries. Built for technology and space enthusiasts.
+                        </p>
+                        <a href="https://youtube.com/@thejunaidameer" target="_blank" rel="noopener" class="btn btn-channel btn-lime magnetic-target">Watch Content</a>
+                    </div>
+
+                    <!-- Platform 2: JUNIREX -->
+                    <div class="channel-card glass-card junirex-channel-card scroll-reveal">
+                        <div class="channel-card-header">
+                            <div class="channel-pfp-wrap amber-pfp-border">
+                                <img src="thejunirex.jpeg" alt="JUNIREX Profile" class="channel-pfp">
+                            </div>
+                            <div class="channel-title-wrap">
+                                <h3 class="channel-title">JUNIREX</h3>
+                                <span class="channel-handle amber-text">@thejunirex</span>
+                            </div>
+                        </div>
+                        <p class="channel-description">
+                            Focused on ancient creatures like dinosaurs, deep ocean exploration, wild nature mysteries, and incredible jungle facts.
+                        </p>
+                        <a href="https://youtube.com/@thejunirex" target="_blank" rel="noopener" class="btn btn-channel btn-amber magnetic-target">Watch Content</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Simplified Journey & Goals Section -->
         <section id="journey" class="journey-section scroll-reveal-zone">
             <div class="section-container">
                 <h2 class="section-title text-center">My Journey & Goals</h2>
+                <p class="section-desc text-center channel-subdesc">How I turned my love for learning into a mission to share knowledge globally.</p>
                 
                 <div class="timeline">
                     <div class="timeline-bar" id="timeline-progress" aria-hidden="true"></div>
@@ -139,27 +191,9 @@
                     <div class="timeline-item left scroll-reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card glass-card">
-                            <span class="timeline-date">The Beginning</span>
-                            <h3>Started Creating Content</h3>
-                            <p>Began making videos because I loved visual storytelling and realized how powerful video can be for sharing ideas.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item right scroll-reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card glass-card">
-                            <span class="timeline-date">The Growth</span>
-                            <h3>Reached Millions of Views</h3>
-                            <p>Connected with a massive audience as my videos started going viral, proving that people genuinely enjoy learning new things.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item left scroll-reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card glass-card">
-                            <span class="timeline-date">The Community</span>
-                            <h3>Built a Deep Audience</h3>
-                            <p>Brought together a wonderful group of viewers who shared a common curiosity for mysteries, space, and science discoveries.</p>
+                            <span class="timeline-date">Where It All Started</span>
+                            <h3>Falling in Love with Science & Tech</h3>
+                            <p>Ever since I can remember, I've loved exploring science and learning how technology works. While studying cybersecurity, I started sharing that excitement through content.</p>
                         </div>
                     </div>
 
@@ -167,26 +201,26 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-card glass-card">
                             <span class="timeline-date">The Turning Point</span>
-                            <h3>Chose to Start Over in English</h3>
-                            <p>Decided to hit reset and begin completely fresh with an English channel so that language wouldn't limit who could enjoy my educational videos.</p>
+                            <h3>Starting Fresh in English</h3>
+                            <p>I originally built my initial audience in my local language. But as I grew, I wanted to share my work with people everywhere. I made the big decision to delete my old local accounts and restart completely in English so anyone in the world could follow along.</p>
                         </div>
                     </div>
 
                     <div class="timeline-item left scroll-reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card glass-card">
-                            <span class="timeline-date">The Present</span>
-                            <h3>Building a Global Brand</h3>
-                            <p>Creating high-quality, thought-provoking videos to scale my new channels and establish a voice in global education.</p>
+                            <span class="timeline-date">Two Distinct Passions</span>
+                            <h3>Dedicated Spaces for Topics</h3>
+                            <p>Because I love both cutting-edge technology and ancient nature mysteries, I created two dedicated spaces: Junaid Ameer for Tech/Space, and JUNIREX for Nature/Prehistoric Wildlife.</p>
                         </div>
                     </div>
 
                     <div class="timeline-item right scroll-reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card glass-card future-card">
-                            <span class="timeline-date">The Mission Goal</span>
-                            <h3>Spreading Knowledge Globally</h3>
-                            <p>My ultimate goal is to break down complex science into engaging, simple pieces. We will continue making impactful videos across social media to make education accessible to millions worldwide.</p>
+                            <span class="timeline-date">My Goal</span>
+                            <h3>What We Want to Achieve</h3>
+                            <p>I want to keep creating awesome, high-quality videos that make learning easy and exciting. My goal is to build a friendly, curious global community across all platforms that loves exploring the universe together.</p>
                         </div>
                     </div>
                 </div>
@@ -200,22 +234,21 @@
                     <div class="glass-card premium-card">
                         <h2 class="card-label">Academic Path</h2>
                         <h3 class="degree-title">BS Cyber Security</h3>
-                        <p class="institution-meta">I am currently studying in university cyber security while balancing my passion for creative content generation, online education systems, and global community building.</p>
+                        <p class="institution-meta">Studying cybersecurity at university while managing content creation, video editing, and researching science and wildlife topics for my community.</p>
                     </div>
                 </div>
                 
                 <div class="skills-content-wrapper">
-                    <h2 class="section-title">Core Competencies</h2>
-                    <p class="section-desc">A balancing path of protective computer science and creative digital video production.</p>
+                    <h2 class="section-title">What I Do</h2>
+                    <p class="section-desc">A mix of technical cybersecurity knowledge and creative digital storytelling.</p>
                     
                     <div class="skills-grid">
-                        <span class="skill-chip scroll-reveal">Networking</span>
                         <span class="skill-chip scroll-reveal">Cyber Security</span>
-                        <span class="skill-chip scroll-reveal">Artificial Intelligence</span>
-                        <span class="skill-chip scroll-reveal">Content Creation</span>
-                        <span class="skill-chip scroll-reveal">Video Editing</span>
+                        <span class="skill-chip scroll-reveal">Space & Tech Research</span>
+                        <span class="skill-chip scroll-reveal">Wildlife & Prehistoric Science</span>
+                        <span class="skill-chip scroll-reveal">Video Production</span>
+                        <span class="skill-chip scroll-reveal">Storytelling</span>
                         <span class="skill-chip scroll-reveal">Web Development</span>
-                        <span class="skill-chip scroll-reveal">Research</span>
                     </div>
                 </div>
             </div>
@@ -223,43 +256,75 @@
 
         <!-- Cinematic Quote Section -->
         <section class="quote-section text-reveal-zone">
-            <div class="section-container min-container text-center">
+            <div class="quote-bg-wrapper" aria-hidden="true">
+                <img src="junaidinspire.jpeg" alt="" class="quote-bg-img">
+                <div class="quote-bg-overlay"></div>
+            </div>
+            <div class="section-container min-container text-center quote-content-relative">
                 <blockquote class="cinematic-quote scroll-reveal">
                     <span class="quote-line-white">Success isn't always moving forward.</span><br>
-                    <span class="highlight-orange">Sometimes it's having the courage to start over.</span>
+                    <span class="highlight-lime">Sometimes it's having the courage to start over.</span>
                 </blockquote>
             </div>
         </section>
     </main>
 
-    <!-- Luxury Hyper-Stylized Community Footer -->
+    <!-- Luxury Community Footer Hub -->
     <footer class="footer">
         <div class="section-container footer-grid">
             <div class="footer-brand">
                 <div class="footer-logo-wrap">
-                    <span class="footer-logo">JA</span>
+                    <img src="junaidmainpic.png" alt="Junaid Ameer Footer Logo" class="footer-logo-img">
                     <div class="footer-logo-glow"></div>
                 </div>
                 <span class="footer-owner">Junaid Ameer</span>
-                <p class="footer-tagline">Simplifying high-concept science, cyber infrastructures, and cosmic geometry for global minds.</p>
+                <p class="footer-tagline">Simplifying high-concept science, space mysteries, and cyber tech for global minds.</p>
             </div>
             
             <div class="footer-social-hub">
                 <h4 class="hub-title">Connect With Me</h4>
                 <div class="footer-social-grid">
                     
-                    <!-- YouTube (Official Red) -->
-                    <a href="https://youtube.com/@thejunaidameer" target="_blank" rel="noopener" class="footer-social-node glass-card magnetic-target youtube-node">
+                    <!-- YouTube Junaid Ameer (Lime Theme) -->
+                    <a href="https://youtube.com/@thejunaidameer" target="_blank" rel="noopener" class="footer-social-node glass-card magnetic-target yt-lime-node">
                         <div class="node-icon-title">
-                            <div class="icon-badge yt-badge">
-                                <svg class="svg-icon brand-yt" viewBox="0 0 24 24"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            <div class="icon-badge yt-lime-badge">
+                                <svg class="svg-icon brand-lime" viewBox="0 0 24 24"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                             </div>
                             <div class="node-meta">
-                                <span class="platform-name">YouTube</span>
+                                <span class="platform-name">Junaid Ameer</span>
+                                <span class="handle-tag lime-text">@thejunaidameer</span>
+                            </div>
+                        </div>
+                        <p class="node-catch">Space, AI, & future tech videos</p>
+                    </a>
+
+                    <!-- YouTube JUNIREX (Amber Theme) -->
+                    <a href="https://youtube.com/@thejunirex" target="_blank" rel="noopener" class="footer-social-node glass-card magnetic-target yt-amber-node">
+                        <div class="node-icon-title">
+                            <div class="icon-badge yt-amber-badge">
+                                <svg class="svg-icon brand-amber" viewBox="0 0 24 24"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </div>
+                            <div class="node-meta">
+                                <span class="platform-name">JUNIREX</span>
+                                <span class="handle-tag amber-text">@thejunirex</span>
+                            </div>
+                        </div>
+                        <p class="node-catch">Ancient creatures, ocean & jungle facts</p>
+                    </a>
+
+                    <!-- Facebook (Official Brand Blue) -->
+                    <a href="https://www.facebook.com/thejunaidameer" target="_blank" rel="noopener" class="footer-social-node glass-card magnetic-target fb-node">
+                        <div class="node-icon-title">
+                            <div class="icon-badge fb-badge">
+                                <svg class="svg-icon brand-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </div>
+                            <div class="node-meta">
+                                <span class="platform-name">Facebook</span>
                                 <span class="handle-tag">@thejunaidameer</span>
                             </div>
                         </div>
-                        <p class="node-catch">Documentaries & educational breakdowns</p>
+                        <p class="node-catch">Updates & community posts</p>
                     </a>
 
                     <!-- TikTok (Official Brand Magenta/Cyan) -->

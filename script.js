@@ -1,21 +1,17 @@
 /**
- * JUNAID AMEER - PREMIUM PERSONAL PORTFOLIO ENGINE
- * Architecture: Vanilla ECMAScript Engine
- * Optimization: Hardware Acceleration, Passive Event Listeners, Compositor Layers
+ * JUNAID AMEER - PERSONAL PORTFOLIO ENGINE
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
-    // Application State Management
     const AppState = {
         isMobile: window.innerWidth <= 900,
-        scrollPosition: 0,
         mouse: { x: window.innerWidth / 2, y: window.innerHeight / 2, targetX: window.innerWidth / 2, targetY: window.innerHeight / 2 }
     };
 
     /* ==========================================================================
-       CINEMATIC BACKGROUND PARTICLE ENGINE (2D Canvas Logic)
+       DEEP SPACE PARTICLE ENGINE (Starfield Particles)
        ========================================================================== */
     const initParticleEngine = () => {
         const canvas = document.getElementById('particle-canvas');
@@ -23,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const ctx = canvas.getContext('2d');
         let particles = [];
-        let animationFrameId;
 
         const resizeCanvas = () => {
             canvas.width = window.innerWidth;
@@ -41,18 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
             reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = canvas.height + Math.random() * 20;
-                this.size = Math.random() * 2.5 + 0.5;
-                this.speedY = Math.random() * 0.4 + 0.1;
-                this.speedX = (Math.random() - 0.5) * 0.15;
-                this.opacity = Math.random() * 0.5 + 0.1;
-                this.blur = this.size > 2;
+                this.size = Math.random() * 2.2 + 0.3;
+                this.speedY = Math.random() * 0.35 + 0.08;
+                this.speedX = (Math.random() - 0.5) * 0.12;
+                this.opacity = Math.random() * 0.6 + 0.1;
+                this.isLime = Math.random() > 0.7; 
             }
 
             update() {
                 this.y -= this.speedY;
                 this.x += this.speedX;
                 
-                const driftX = (AppState.mouse.x - window.innerWidth / 2) * 0.0005;
+                const driftX = (AppState.mouse.x - window.innerWidth / 2) * 0.0004;
                 this.x += driftX * (this.size * 0.5);
 
                 if (this.y < -10 || this.x < -10 || this.x > canvas.width + 10) {
@@ -62,12 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             draw() {
                 ctx.beginPath();
-                ctx.fillStyle = `rgba(255, 147, 79, ${this.opacity})`;
-                
-                if (this.blur) {
-                    ctx.shadowBlur = 8;
-                    ctx.shadowColor = 'rgba(255, 110, 41, 0.4)';
+                if (this.isLime) {
+                    ctx.fillStyle = `rgba(137, 243, 54, ${this.opacity})`;
+                    ctx.shadowBlur = this.size > 1.8 ? 6 : 0;
+                    ctx.shadowColor = 'rgba(137, 243, 54, 0.4)';
                 } else {
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
                     ctx.shadowBlur = 0;
                 }
                 
@@ -76,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        const particleCount = AppState.isMobile ? 35 : 90;
+        const particleCount = AppState.isMobile ? 40 : 95;
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
@@ -87,14 +82,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 particles[i].update();
                 particles[i].draw();
             }
-            animationFrameId = requestAnimationFrame(renderLoop);
+            requestAnimationFrame(renderLoop);
         };
         renderLoop();
     };
     initParticleEngine();
 
     /* ==========================================================================
-       INTERACTIVE BACKGROUND SPOTLIGHT TRACKING ENGINE
+       INTERACTIVE AMBIENT TRACKING
        ========================================================================== */
     const initAmbientTracking = () => {
         const ambientGlow = document.getElementById('ambient-glow');
@@ -109,8 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
             AppState.mouse.x += (AppState.mouse.targetX - AppState.mouse.x) * 0.04;
             AppState.mouse.y += (AppState.mouse.targetY - AppState.mouse.y) * 0.04;
 
-            const shiftX = (AppState.mouse.x - window.innerWidth / 2) * 0.12;
-            const shiftY = (AppState.mouse.y - window.innerHeight / 2) * 0.12;
+            const shiftX = (AppState.mouse.x - window.innerWidth / 2) * 0.10;
+            const shiftY = (AppState.mouse.y - window.innerHeight / 2) * 0.10;
 
             ambientGlow.style.transform = `translate(calc(-50% + ${shiftX}px), calc(-50% + ${shiftY}px))`;
             requestAnimationFrame(lerpGlow);
@@ -120,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!AppState.isMobile) initAmbientTracking();
 
     /* ==========================================================================
-       DYNAMIC TARGET INTERACTIVE SPOTLIGHT LIGHTING
+       DYNAMIC CARD SPOTLIGHT LIGHTING
        ========================================================================== */
     const initCardSpotlights = () => {
         const cards = document.querySelectorAll('.glass-card');
@@ -132,15 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const y = e.clientY - rect.top;
                 
                 if(!card.classList.contains('footer-social-node')) {
-                    card.style.background = `radial-gradient(300px circle at ${x}px ${y}px, rgba(255, 110, 41, 0.08), transparent 80%), var(--card-bg-glass)`;
-                    card.style.borderColor = `rgba(255, 110, 41, 0.25)`;
+                    card.style.background = `radial-gradient(320px circle at ${x}px ${y}px, rgba(137, 243, 54, 0.06), transparent 80%), var(--card-bg-glass)`;
                 }
             });
 
             card.addEventListener('mouseleave', () => {
                 if(!card.classList.contains('footer-social-node')) {
                     card.style.background = 'var(--card-bg-glass)';
-                    card.style.borderColor = 'var(--card-border-glass)';
                 }
             });
         });
@@ -148,13 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initCardSpotlights();
 
     /* ==========================================================================
-       PREMIUM TYPEWRITER ENGINE
+       TYPEWRITER ENGINE
        ========================================================================== */
     const initTypewriter = () => {
         const target = document.getElementById('typewriter');
         if (!target) return;
 
-        const phrases = ["Content Creator", "Cyber Security Student"];
+        const phrases = ["Content Creator", "Cyber Security Student", "Tech Storyteller"];
         let phraseIdx = 0;
         let charIdx = 0;
         let isDeleting = false;
@@ -237,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
 
     /* ==========================================================================
-       HIGH-PERFORMANCE SCROLL CONTROLLER
+       SCROLL CONTROLLER
        ========================================================================== */
     const initScrollEngine = () => {
         const navbar = document.getElementById('main-nav');
@@ -304,9 +297,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
                 
-                btn.style.transform = `translate(${x * 0.35}px, ${y * 0.4}px) scale(1.02)`;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.35}px) scale(1.02)`;
                 if (btn.classList.contains('footer-social-node')) {
-                    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.2}px)`;
+                    btn.style.transform = `translate(${x * 0.12}px, ${y * 0.18}px)`;
                 }
             });
 
