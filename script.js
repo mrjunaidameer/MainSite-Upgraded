@@ -1,5 +1,5 @@
 /**
- * JUNAID AMEER - PERSONAL PORTFOLIO ENGINE
+ * JUNAID AMEER - DEEP COSMIC PORTFOLIO ENGINE
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /* ==========================================================================
-       DEEP SPACE PARTICLE ENGINE (Starfield Particles)
+       DYNAMIC STARFIELD & GALACTIC PARTICLE ENGINE
        ========================================================================== */
     const initParticleEngine = () => {
         const canvas = document.getElementById('particle-canvas');
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas, { passive: true });
 
-        class Particle {
+        class StarParticle {
             constructor() {
                 this.reset();
                 this.y = Math.random() * canvas.height; 
@@ -36,18 +36,23 @@ document.addEventListener('DOMContentLoaded', () => {
             reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = canvas.height + Math.random() * 20;
-                this.size = Math.random() * 2.2 + 0.3;
-                this.speedY = Math.random() * 0.35 + 0.08;
-                this.speedX = (Math.random() - 0.5) * 0.12;
-                this.opacity = Math.random() * 0.6 + 0.1;
-                this.isLime = Math.random() > 0.7; 
+                this.size = Math.random() * 2.5 + 0.4;
+                this.speedY = Math.random() * 0.45 + 0.1;
+                this.speedX = (Math.random() - 0.5) * 0.15;
+                this.opacity = Math.random() * 0.7 + 0.2;
+                this.twinkle = Math.random() * 0.02 + 0.005;
+                this.colorType = Math.random(); 
             }
 
             update() {
                 this.y -= this.speedY;
                 this.x += this.speedX;
                 
-                const driftX = (AppState.mouse.x - window.innerWidth / 2) * 0.0004;
+                // Twinkle effect
+                this.opacity += Math.sin(Date.now() * this.twinkle) * 0.01;
+                this.opacity = Math.min(Math.max(this.opacity, 0.1), 0.95);
+
+                const driftX = (AppState.mouse.x - window.innerWidth / 2) * 0.0005;
                 this.x += driftX * (this.size * 0.5);
 
                 if (this.y < -10 || this.x < -10 || this.x > canvas.width + 10) {
@@ -57,11 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             draw() {
                 ctx.beginPath();
-                if (this.isLime) {
+                if (this.colorType > 0.75) {
+                    // Lime Nebula Stars
                     ctx.fillStyle = `rgba(137, 243, 54, ${this.opacity})`;
-                    ctx.shadowBlur = this.size > 1.8 ? 6 : 0;
-                    ctx.shadowColor = 'rgba(137, 243, 54, 0.4)';
+                    ctx.shadowBlur = this.size > 1.8 ? 8 : 0;
+                    ctx.shadowColor = 'rgba(137, 243, 54, 0.5)';
+                } else if (this.colorType > 0.55) {
+                    // Amber Cosmic Stars
+                    ctx.fillStyle = `rgba(251, 160, 1, ${this.opacity})`;
+                    ctx.shadowBlur = this.size > 1.8 ? 8 : 0;
+                    ctx.shadowColor = 'rgba(251, 160, 1, 0.5)';
                 } else {
+                    // Deep Space White Stars
                     ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
                     ctx.shadowBlur = 0;
                 }
@@ -71,9 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        const particleCount = AppState.isMobile ? 40 : 95;
+        const particleCount = AppState.isMobile ? 55 : 120;
         for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
+            particles.push(new StarParticle());
         }
 
         const renderLoop = () => {
@@ -104,8 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
             AppState.mouse.x += (AppState.mouse.targetX - AppState.mouse.x) * 0.04;
             AppState.mouse.y += (AppState.mouse.targetY - AppState.mouse.y) * 0.04;
 
-            const shiftX = (AppState.mouse.x - window.innerWidth / 2) * 0.10;
-            const shiftY = (AppState.mouse.y - window.innerHeight / 2) * 0.10;
+            const shiftX = (AppState.mouse.x - window.innerWidth / 2) * 0.12;
+            const shiftY = (AppState.mouse.y - window.innerHeight / 2) * 0.12;
 
             ambientGlow.style.transform = `translate(calc(-50% + ${shiftX}px), calc(-50% + ${shiftY}px))`;
             requestAnimationFrame(lerpGlow);
@@ -127,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const y = e.clientY - rect.top;
                 
                 if(!card.classList.contains('footer-social-node')) {
-                    card.style.background = `radial-gradient(320px circle at ${x}px ${y}px, rgba(137, 243, 54, 0.06), transparent 80%), var(--card-bg-glass)`;
+                    card.style.background = `radial-gradient(350px circle at ${x}px ${y}px, rgba(137, 243, 54, 0.08), transparent 80%), var(--card-bg-glass)`;
                 }
             });
 
